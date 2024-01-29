@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap');
+
+body, html{
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    height: 100%;
+}
+main {
+    background-color: white;
+}
+nav {
+    background-color: #282E34;
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    text-align: right;
+    padding: 0.65vw;
+    z-index: 1;
+    text-decoration: none;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.grid { 
+    display: grid;
+    grid-template-columns: 15vw 80vw;
+    grid-template-rows: auto;
+  }
+.img1 {
+    background-image: url("Images/greylog.PNG");
+    min-height: 80%;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+    /* Turn off parallax scrolling for tablets and phones */
+    @media only screen and (max-device-width: 1366px) {
+        .parallax {
+        background-attachment: scroll;
+        }
+    }
+    
+/* text */
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    text-decoration-color: black;
+    color: #000;
+    }
+    .caption span.border {
+        background-color: #111;
+        color: #000000;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+    }
+h1, h2, h3, h4, h5, h6, p {
+        font-weight: 400;
+        line-height: 1.5;
+        margin: 1vw 8vw 0 ;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 1vw;
+      }
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+                color: inherit;
+                text-decoration: none;
+      }
+    h1{        
+        font-size: 2.7vw;
+        text-transform: uppercase;
+        font-family: "Arimo", sans-serif;
+        font-weight: 700;
+      }
+    
+    h2 {
+        font-size: 2.5vw;
+        font-weight: 600;
+        padding: 1vw;
+        font-family: "Arimo", sans-serif;
+      }
+    h3 {
+        font-size: 2vw;
+      }
+      
+    h4 {
+        font-size: 1.5vw;
+      }
+      
+    h5 {
+        font-size: 1.3vw;
+      }
+      
+    h6 {
+        font-size: 1.2vw;
+      }
+a, a:visited {
+        text-decoration: none;
+        color: white;
+        font-size: 1.5vw;
+}
+ul, li {
+        list-style: none;
+        padding: 1vw 3vw;
+        font-size: 1.4vw;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+    }
+    ul li a:hover {
+            color: #ccfffe81;
+        }
+footer {
+          position: absolute;
+          bottom: 1;
+        }
