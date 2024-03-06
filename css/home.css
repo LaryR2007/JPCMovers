@@ -14,7 +14,6 @@ nav {
     width: 100%;
     margin: auto;
     text-align: right;
-    padding: 0.65vw;
     z-index: 1;
     text-decoration: none;
 }
@@ -28,6 +27,12 @@ img {
     display: grid;
     grid-template-columns: 15vw 80vw;
     grid-template-rows: auto;
+  }
+  .grid4 { 
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    justify-content: center;
   }
 .img1 {
     background-image: url("Images/greylog.PNG");
@@ -44,7 +49,61 @@ img {
         background-attachment: scroll;
         }
     }
-    
+
+.central {
+  padding: 14vw 14vw;
+}
+  
+.box1 {
+  border-radius: 2vw;
+  width: 28vw;
+  height: 18vw;
+  border: 0.2vw solid #00008B;
+  box-shadow: 0.8vw 0.8vw #00008B;
+}  
+.box2 {
+  position: relative;
+  left: 43vw;
+  border-radius: 2vw;
+  width: 28vw;
+  height: 18vw;
+  border: 0.2vw solid #BF0000;
+  box-shadow: 0.8vw 0.8vw #BF0000;
+}
+.truck {
+  position:absolute;
+  left: 76vw;
+  top: 26vw;
+  background-repeat: no-repeat;
+  width: 15%;
+  z-index: 1;
+}
+
+.bob {
+  position:absolute;
+  left: 12vw;
+  top: 63vw;
+  background-repeat: no-repeat;
+  width: 10%;
+  z-index: 1;
+}
+
+.button {
+  object-position: center;
+  position: absolute;
+  text-align: center;
+  font-size: 1.3vw;
+  font-weight: 400;
+  padding-top: 0.7vw;
+  background-color:#282E34;
+  color: #fff;
+  border:none; 
+  border-radius:0.8vw; 
+  min-height:3vw; 
+  min-width: 10vw;
+}
+
+
 /* text */
 .caption {
     position: absolute;
@@ -65,10 +124,9 @@ img {
 h1, h2, h3, h4, h5, h6, p {
         font-weight: 400;
         line-height: 1.5;
-        margin: 1vw 8vw 0 ;
         color: rgb(0, 0, 0);
-        text-align: center;
-        padding: 1vw;
+        text-align: left;
+        padding: 0 1vw;
       }
     h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
                 color: inherit;
@@ -94,7 +152,6 @@ h1, h2, h3, h4, h5, h6, p {
     h4 {
         font-size: 1.5vw;
       }
-      
     h5 {
         font-size: 1.3vw;
       }
@@ -113,7 +170,7 @@ ul, li {
         font-size: 1.4vw;
         font-weight: 600;
         text-decoration: none;
-        display: inline-block;
+        display: block;
     }
     ul li a:hover {
             color: #ccfffe81;
@@ -122,3 +179,4 @@ footer {
           position: absolute;
           bottom: 1;
         }
+
