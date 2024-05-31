@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset=UTF-8>
+        <meta name="Description" content="JPC Movers Company Info">
+        <link rel="stylesheet" href="css/home.css">
+        <title>JPC Best Movers</title>
+        <!--Favicon-->
+        <link rel="icon" type="image/x-icon" href="css/Images/favicon.ico">
+        <!---->
+    </head>
+    <body>
+        <nav class="grid" style="position: absolute;">
+            <div><img src="css/Images/nobacklog.png" alt="Logo" style="width: 80%;"></div>
+            <section>
+                <ul>
+                <li style="display: inline-block;"><a href="index.html">Homepage</a></li>
+                <li style="display: inline-block;"><a href="services.html"> Services </a></li>
+                <li style="display: inline-block;"><a href="Reviews.html"> Reviews </a></li>
+                </ul>
+            </section>
+        </div>
+        </nav>
+    <main class="form">
+        <h1> Contact Us </h1>
+        <div style="border: 0.3vw dashed black">
+        <h4>Email: JPCbestmovers@gmail.com</h4>
+        <h4>Instagram: @JPC_Movers</h4>
+        <h4>Facebook: JPC Best Movers</h4>
+        <h4>Phone: (703) 869-5547</h4>
+        <h4>You may text or call this number</h4></div>
+        <h1>Get A Quote</h1>
+        <form action="send_email.php" method="post">
+            <fieldset name="Quote">
+                <p>
+                    <label for="Name">Name: </label>
+                    <input type="text" name="Name" id="Name" required/>
+                </p>
+                <p>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" placeholder="user@provider.com" id="first" required/>
+                </p>
+                
+                <p>
+                    <label for="db">Date of Move: </label>
+                    <input type="date" name="dom" id="db" />
+                </p>
+                <p>
+                    <label for="num">Number of Bedrooms: </label>
+                    <input type="number" name="age" min="1" max="10" id="num" />
+                </p>
+                <p>
+                    <label for="serv">What You Would Need Done: </label>
+                    <input list="services" name="service" id="serv" />
+                    <datalist id="services">
+                        <option value="Load and Unload"> </option>
+                        <option value="Just Load"> </option>
+                        <option value="Just Unload"> </option>
+                        <option value="Inside Move"> </option>
+                        <option value="Full Service"> </option>
+                        <option value="Packing"> </option>
+                    </datalist>
+                </p>
+            </fieldset>
+        </form>
+    </main>
+    <div style="position: relative;">
+        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <footer>Scroll up and down to really get the feeling of how Parallax Scrolling works.</footer>
+        </div>
+      </div>
+    </body>
+    </html>

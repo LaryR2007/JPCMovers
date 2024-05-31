@@ -53,6 +53,11 @@ img {
 .central {
   padding: 14vw 14vw;
 }
+.form {
+  padding: 14vw 0 4vw 0;
+  width: 50%;
+  margin: auto;
+}
   
 .box1 {
   border-radius: 2vw;
@@ -125,7 +130,7 @@ h1, h2, h3, h4, h5, h6, p {
         font-weight: 400;
         line-height: 1.5;
         color: rgb(0, 0, 0);
-        text-align: left;
+        text-align: center;
         padding: 0 1vw;
       }
     h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -180,3 +185,7 @@ footer {
           bottom: 1;
         }
 
+/* Reviews*/
+.reviews {
+  
+}
