@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <head>
+        <style>
+            h1, h2, h3, h4, h5, h6, p {
+            font-weight: 400;
+            line-height: 1.5;
+            color: rgb(0, 0, 0);
+            text-align: right;
+            padding: 0 1vw;
+            }
+        </style>
+    </head>
+    <body>
+        
+<main class="central">
+        {% for service in services %}
+            <div class="box{% cycle '1' '2' %}">
+                <h4>{{ service.name }}</h4>
+                <h5>{{ service.description }}</h5>
+                <a href="{% url 'make_reservation' service.id %}" class="glass-button">Reserve</a>
+            </div>
+        {% endfor %}
+    
+</main>
+</body>
+{% endblock %}
