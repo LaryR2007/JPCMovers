@@ -26,7 +26,7 @@ def services_view(request):
     services = Service.objects.all()
     return render(request, 'services.html', {'services': services})
 
-def make_reservation(request):
+def make_reservation(request, service_id=None):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
@@ -34,6 +34,7 @@ def make_reservation(request):
             return render(request, 'reservation_success.html', {'reservation': reservation})
     else:
         form = ReservationForm()
+
     return render(request, 'make_reservation.html', {'form': form})
 
 def lookup_reservation(request):

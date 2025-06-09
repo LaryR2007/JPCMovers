@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="central">
+    <h2>Make a Reservation</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_customer_name">Name:</label>
+            {{ form.customer_name }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_customer_phone">Phone Number:</label>
+            {{ form.customer_phone }}
+        </div>
+
+       <div class="form-group">
+    <label for="id_service">Service:</label>
+    {{ form.service }}
+</div>
+
+<div class="form-group">
+    <label for="id_workers">Number of Workers:</label>
+    {{ form.workers }}
+</div>
+
+<div class="form-group">
+    <label for="id_hours">Number of Hours:</label>
+    {{ form.hours }}
+</div>
+
+<div class="form-group">
+    <strong>Total Estimate: $<span id="total-price">0.00</span></strong>
+  </div>
+
+  <button type="submit" class="button">Reserve Now</button>
+</form>
+</main>
+
+
+{% endblock %}

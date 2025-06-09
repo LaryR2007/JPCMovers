@@ -99,9 +99,10 @@ img {
   z-index: 1;
 }
 
+
 .glass-button {
-  background-color: white;
-  color: #282E34;
+  background-color: #282E34;
+  color: white;
   font-size: 1.3vw;
   font-weight: 600;
   padding: 0.7vw 2vw;
@@ -116,8 +117,8 @@ img {
 }
 
 .glass-button:hover {
-  background-color: #282E34;
-  color: white;
+  background-color: white;
+  color: #282E34;
 }
 
 /* text */

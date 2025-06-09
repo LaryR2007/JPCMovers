@@ -19,7 +19,7 @@
             <div class="box{% cycle '1' '2' %}">
                 <h4>{{ service.name }}</h4>
                 <h5>{{ service.description }}</h5>
-                <a href="{% url 'make_reservation' service.id %}" class="glass-button">Reserve</a>
+                <a href="{% url 'make_reservation' %}" class="glass-button">Reserve</a>
             </div>
         {% endfor %}
     
