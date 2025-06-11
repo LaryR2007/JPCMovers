@@ -12,6 +12,7 @@
     <p><strong>Workers:</strong> {{ reservation.workers }}</p>
     <p><strong>Hours:</strong> {{ reservation.hours }}</p>
     <p><strong>Date & Time:</strong> {{ reservation.move_datetime|date:"Y-m-d H:i" }}</p>
+    <p><strong>Please note that time is not guaranteed. When we call to confirm, we will schedule based on availability.</strong></p>
     <p><strong>Origin Address:</strong> {{ reservation.origin_address }}</p>
     <p><strong>Destination Address:</strong> {{ reservation.destination_address|default:"N/A" }}</p>
     <h3><strong>Total Estimated Cost:</strong> ${{ total }}</h3>

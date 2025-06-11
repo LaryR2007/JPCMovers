@@ -48,7 +48,7 @@ def make_reservation(request):
             text_content = strip_tags(html_content)  # fallback for email clients that don't support HTML
 
             subject = f"Reservation Confirmation - JPC Best Movers"
-            from_email = settings.DEFAULT_FROM_EMAIL
+            from_email = 'JPC Best Movers <jpcbestmovers@gmail.com>'
             to = [reservation.customer_email]
             cc = ['jpcbestmovers@gmail.com']  # Send yourself a copy
 
