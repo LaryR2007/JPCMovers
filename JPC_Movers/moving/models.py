@@ -1,8 +1,11 @@
 from django.db import models
 import uuid
+from decimal import Decimal
+from django.utils import timezone
 
 # Create your models here.
-
+def generate_reservation_number():
+        return uuid.uuid4().hex[:8].upper()  
 class Service(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -18,29 +21,30 @@ class Service(models.Model):
     def __str__(self):
         return self.name
 
-    
-class Reservation(models.Model):
-    reservation_number = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+class Reservation(models.Model):  
+    reservation_number = models.CharField(
+        max_length=8,
+        unique=True,
+        default= generate_reservation_number,
+        editable=False
+    )
     customer_name = models.CharField(max_length=100)
     customer_email = models.EmailField()
     customer_phone = models.CharField(max_length=20)
-    move_date = models.DateField()
+    move_datetime = models.DateTimeField()
     origin_address = models.CharField(max_length=255)
     destination_address = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_canceled = models.BooleanField(default=False)
-    service = models.ForeignKey(Service, on_delete=models.CASCADE)
-    hours = models.PositiveIntegerField()
-    workers = models.PositiveIntegerField()
+    service = models.ForeignKey('Service', on_delete=models.CASCADE)
+    workers = models.IntegerField(choices=[(1, '1'), (2, '2'), (3, '3')])
+    hours = models.IntegerField(choices=[(i, str(i)) for i in range(1, 13)])
+     
 
-    @property
     def total_cost(self):
-        return self.service.get_price_per_hour(self.workers) * self.hours
+        return self.service.base_price_per_hour * Decimal(self.workers) * Decimal(self.hours)
 
     def __str__(self):
-        return f"{self.service.name} - {self.hours}h, {self.workers} workers"
-
-    def __str__(self):
-        return f"{self.customer_name} - {self.reservation_number}"
+        return f"Reservation {self.reservation_number} for {self.customer_name}"
 
     

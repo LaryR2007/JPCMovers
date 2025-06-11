@@ -19,22 +19,24 @@ def get_quote(request):
 def reviews(request):
     return render(request, 'reviews.html')
 
-def reservation_success(request):
-    return render(request, 'reservation_success.html')
+def reservation_success(request, reservation_number):
+    reservation = get_object_or_404(Reservation, reservation_number=reservation_number)
+    total = reservation.total_cost()
+    return render(request, 'reservation_success.html', {'reservation': reservation, 'total': total})
 
 def services_view(request):
     services = Service.objects.all()
     return render(request, 'services.html', {'services': services})
 
-def make_reservation(request, service_id=None):
+def make_reservation(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
             reservation = form.save()
-            return render(request, 'reservation_success.html', {'reservation': reservation})
+            total = reservation.total_cost()
+            return redirect('reservation_success', reservation_number=reservation.reservation_number)
     else:
         form = ReservationForm()
-
     return render(request, 'make_reservation.html', {'form': form})
 
 def lookup_reservation(request):

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="central">
+<h2>Reservation Successful!</h2>
+<p>Thank you, {{ reservation.customer_name }}!</p>
+<p>Your reservation number is: <strong>{{ reservation.reservation_number }}</strong></p>
+<p>Total cost: ${{ total }}</p>
+<a href="{% url 'index' %}">Back to Home</a>
+</main> 
+{% endblock %}

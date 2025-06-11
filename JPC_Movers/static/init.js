@@ -1,22 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const serviceSelect = document.getElementById('id_service');
-    const workersSelect = document.getElementById('id_workers');
-    const hoursSelect = document.getElementById('id_hours');
-    const totalPriceDisplay = document.getElementById('total-price');
+document.addEventListener("DOMContentLoaded", function () {
+    const serviceSelect = document.getElementById("id_service");
+    const workersSelect = document.getElementById("id_workers");
+    const hoursSelect = document.getElementById("id_hours");
+    const totalDisplay = document.getElementById("total-cost");
 
-    const servicePrices = window.servicePrices || {};
+    const servicePrices = JSON.parse(document.getElementById("service-prices").textContent);
 
     function updateTotal() {
-        console.log("updating total");
         const serviceId = serviceSelect.value;
         const workers = parseInt(workersSelect.value) || 0;
         const hours = parseInt(hoursSelect.value) || 0;
-        const pricePerHourPerWorker = servicePrices[serviceId] || 0;
-        const total = pricePerHourPerWorker * workers * hours;
-        totalPriceDisplay.textContent = total.toFixed(2);
+
+        if (serviceId && workers && hours) {
+            const basePrice = parseFloat(servicePrices[serviceId]) || 0;
+            const total = (basePrice * workers * hours).toFixed(2);
+            totalDisplay.innerText = `$${total}`;
+        } else {
+            totalDisplay.innerText = "$0.00";
+        }
     }
 
-    serviceSelect.addEventListener('change', updateTotal);
-    workersSelect.addEventListener('change', updateTotal);
-    hoursSelect.addEventListener('change', updateTotal);
+    serviceSelect.addEventListener("change", updateTotal);
+    workersSelect.addEventListener("change", updateTotal);
+    hoursSelect.addEventListener("change", updateTotal);
+
+    updateTotal(); // initialize on load
 });

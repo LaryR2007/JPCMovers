@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+import environ
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -52,7 +55,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'JPC_Movers.urls'
 
-import os
 
 TEMPLATES = [
     {
@@ -73,6 +75,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'JPC_Movers.wsgi.application'
 
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")  # Your Gmail or company address
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")  # App password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -117,7 +127,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-import os
 
 STATIC_URL = '/static/'
 
