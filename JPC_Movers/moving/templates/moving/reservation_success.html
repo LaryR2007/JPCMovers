@@ -5,7 +5,7 @@
 <h2>Reservation Successful!</h2>
 <p>Thank you, {{ reservation.customer_name }}!</p>
 <p>Your reservation number is: <strong>{{ reservation.reservation_number }}</strong></p>
+<p>You will recieve an email confirmation at <strong>{{ reservation.customer_email }}</strong>, if you do not receive anything within 24 hours call <strong>(703) 869-5547</strong>.</p>
 <p>Total cost: ${{ total }}</p>
-<a href="{% url 'index' %}">Back to Home</a>
 </main> 
 {% endblock %}

@@ -2,7 +2,10 @@ from django.shortcuts import render
 from .models import Service, Reservation
 from .forms import ReservationForm, ReservationLookupForm
 from django.shortcuts import render, redirect, get_object_or_404
-
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -34,6 +37,25 @@ def make_reservation(request):
         if form.is_valid():
             reservation = form.save()
             total = reservation.total_cost()
+#----------------Email subject and message-------------------
+            context = {
+                'reservation': reservation,
+                'total': total
+            }
+
+            # Render HTML email content
+            html_content = render_to_string("moving/reservation_email.html", context)
+            text_content = strip_tags(html_content)  # fallback for email clients that don't support HTML
+
+            subject = f"Reservation Confirmation - JPC Best Movers"
+            from_email = settings.DEFAULT_FROM_EMAIL
+            to = [reservation.customer_email]
+            cc = ['jpcbestmovers@gmail.com']  # Send yourself a copy
+
+            msg = EmailMultiAlternatives(subject, text_content, from_email, to, cc=cc)
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
+#---------------------------DONE-------------------------
             return redirect('reservation_success', reservation_number=reservation.reservation_number)
     else:
         form = ReservationForm()

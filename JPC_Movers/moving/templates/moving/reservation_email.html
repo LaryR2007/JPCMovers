@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  
+  <body style="font-family: sans-serif;">
+    <h3>Dear <strong>{{ reservation.customer_name }},</strong></h3>
+    <h3>Thank you for choosing JPC Best Movers!</h3>
+
+    <p><strong>Reservation Number:</strong> {{ reservation.reservation_number }}</p>
+    <p><strong>Phone:</strong> {{ reservation.customer_phone }}</p>
+    <p><strong>Services:</strong> {{ reservation.service.name }}</p>
+    <p><strong>Workers:</strong> {{ reservation.workers }}</p>
+    <p><strong>Hours:</strong> {{ reservation.hours }}</p>
+    <p><strong>Date & Time:</strong> {{ reservation.move_datetime|date:"Y-m-d H:i" }}</p>
+    <p><strong>Origin Address:</strong> {{ reservation.origin_address }}</p>
+    <p><strong>Destination Address:</strong> {{ reservation.destination_address|default:"N/A" }}</p>
+    <h3><strong>Total Estimated Cost:</strong> ${{ total }}</h3>
+    <br>
+    <p>We will reach out to confirm the details soon.</p>
+    <p>If you wish to edit or cancel your reservation please call or email us.</p>
+    
+    <p>
+      Best regards,<br>
+      <strong>JPC Best Movers</strong><br>
+      (703) 869-5547<br>
+      <a href="mailto:jpcbestmovers@gmail.com">jpcbestmovers@gmail.com</a>
+    </p>
+
+    <br><br>
+    <p style="text-align:center;">&copy; JPC Best Movers</p>
+  </body>
+</html>
